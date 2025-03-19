@@ -39,27 +39,70 @@
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
 
+    let fifteenHundreds = inventors.filter(inventor => inventor.year >= 1500 && 1599 >= inventor.year);
+    // console.log(fifteenHundreds);
+
     // Array.prototype.map()
     // 2. Give us an array of the inventors first and last names
+
+    let names = inventors.map(inventor => inventor.first.concat(" ", inventor.last));
+    // console.log(names);
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
 
+    let sortByBirthdate = inventors.sort((a, b) => a.year - b.year);
+    // console.log(sortByBirthdate);
+
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
 
+    let totalYears = inventors.reduce((total, inventor) => total + inventor.passed - inventor.year, 0);
+    // console.log(totalYears);
+
     // 5. Sort the inventors by years lived
+
+    let sortByLifespan = inventors.sort((a, b) => (a.passed - a.year) - (b.passed - b.year));
+    // console.log(sortByLifespan);
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
+    // const category = document.querySelector(".mw-category");
+    // const boulevardsLinks = Array.from(category.querySelectorAll('a'));
+    // const boulevardsArray = boulevardsLinks.map(text => text.textContent);
+    
+    // let boulevardsWithDe = boulevardsArray.filter(boulevard => boulevard.includes("de"));
+    // console.log(boulevardsWithDe);
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
 
+    let sortedLastNames = people.sort();
+    // console.log(sortedLastNames);
+
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+
+    // let sumOfInstances = data.reduce((obj, vehicle) => {
+    //   if (!obj[vehicle]) {
+    //     obj[vehicle] = 0;
+    //   };
+    //   obj[vehicle]++;
+    //   return obj;
+    // }, {});
+
+    let sumOfInstances = data.reduce((obj, vehicle) => {
+      if (!obj[vehicle]) {
+        obj[vehicle] = 1;
+      } else {
+      obj[vehicle] += 1;
+      };
+      return obj
+    }, {});
+
+    // console.log(sumOfInstances);
 
   </script>
 </body>
